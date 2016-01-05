@@ -34,14 +34,13 @@ public class MyEndpoint {
         return response;
     }
 
-    /** A simple endpoint method that takes a name and says Hi back */
+    /** A simple endpoint method that returns a joke from jokesource */
     @ApiMethod(name = "getJoke")
     public MyBean getJoke() {
         MyBean response = new MyBean();
         JokeSource jokeSource = new JokeSource();
-        String joke = jokeSource.getJoke();
 
-        response.setData(joke);
+        response.setData(jokeSource.getJoke());
 
         return response;
     }
