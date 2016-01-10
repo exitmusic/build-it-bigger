@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -19,11 +20,14 @@ public class JokeActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_joke, container, false);
         Intent intent = getActivity().getIntent();
         String joke = intent.getStringExtra(JokeActivity.JOKE_KEY);
+        TextView jokeTextView = (TextView) root.findViewById(R.id.joke_text_view);
 
-        Toast.makeText(getActivity(), joke, Toast.LENGTH_SHORT).show();
+        jokeTextView.setText(joke);
+        //Toast.makeText(getActivity(), joke, Toast.LENGTH_SHORT).show();
 
         return root;
     }

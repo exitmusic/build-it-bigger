@@ -106,10 +106,11 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     @Override
     protected void onPostExecute(String result) {
         Intent intent = new Intent(context, JokeActivity.class);
+
         intent.putExtra(JokeActivity.JOKE_KEY, result);
         context.startActivity(intent);
 
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 
     public EndpointsAsyncTask setListener(EndpointsAsyncTaskListener listener) {
