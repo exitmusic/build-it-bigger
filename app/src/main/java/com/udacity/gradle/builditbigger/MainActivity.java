@@ -68,6 +68,8 @@ public class MainActivity extends ActionBarActivity {
 }
 
 class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+
+    private EndpointsAsyncTaskListener mListener = null;
     private static MyApi myApiService = null;
     private Context context;
 
@@ -108,5 +110,14 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         context.startActivity(intent);
 
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+    }
+
+    public EndpointsAsyncTask setListener(EndpointsAsyncTaskListener listener) {
+        this.mListener = listener;
+        return this;
+    }
+
+    public interface EndpointsAsyncTaskListener {
+        void onComplete(String jsonString, Exception e);
     }
 }
