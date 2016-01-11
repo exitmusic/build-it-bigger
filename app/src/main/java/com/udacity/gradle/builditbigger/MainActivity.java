@@ -53,14 +53,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view){
-        //Intent intent = new Intent(this, JokeActivity.class);
         EndpointsAsyncTask jokeTask = new EndpointsAsyncTask();
 
         jokeTask.execute(new Pair<Context, String>(this, "getJoke"));
 
+        //Intent intent = new Intent(this, JokeActivity.class);
         //intent.putExtra(JokeActivity.JOKE_KEY, joke);
         //startActivity(intent);
-
         //Toast.makeText(this, myJokeSource.getJoke(), Toast.LENGTH_SHORT).show();
     }
 
